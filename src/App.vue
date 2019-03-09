@@ -1,25 +1,41 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <Header />
+    <Navigation v-if="isAuthenticated" />
     <router-view />
   </div>
 </template>
-<style lang="stylus">
-#app
-  font-family 'Avenir', Helvetica, Arial, sans-serif
-  -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale
-  text-align center
-  color #2c3e50
 
-#nav
-  padding 30px
-  a
-    font-weight bold
-    color #2c3e50
-    &.router-link-exact-active
-      color #42b983
+<script>
+import { mapState } from "vuex";
+import Header from "@/components/Header";
+import Navigation from "@/components/Navigation";
+
+export default {
+  components: { Header, Navigation },
+  computed: {
+    ...mapState("Login", {
+      isAuthenticated: state => state.User
+    })
+  }
+};
+</script>
+
+<style lang="stylus" scoped>
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+SC|Open+Sans&subset=chinese-simplified');
+// font-family: 'Noto Serif SC', serif;
+// font-family: 'Open Sans', sans-serif;
+
+#app {
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  margin: -8px;
+  height: 100vh;
+  color: #2c3e50;
+  background-color: #E5E5E5;
+}
 </style>
