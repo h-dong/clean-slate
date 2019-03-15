@@ -6,7 +6,9 @@
           :to="{ name: routes.FOCUS }"
           :class="{ active: isActive(routes.FOCUS) }"
         >
-          <FormatListChecks class="icon" decorative /> Focus
+          <FormatListChecks class="icon" decorative />
+
+          <span>Focus</span>
         </router-link>
       </li>
       <li>
@@ -14,7 +16,8 @@
           :to="{ name: routes.PLAN }"
           :class="{ active: isActive(routes.PLAN) }"
         >
-          <Trello class="icon" decorative /> Plan
+          <Trello class="icon" decorative />
+          <span>Plan</span>
         </router-link>
       </li>
       <li>
@@ -22,7 +25,8 @@
           :to="{ name: routes.CALENDAR }"
           :class="{ active: isActive(routes.CALENDAR) }"
         >
-          <CalendarCheck class="icon" decorative /> Calendar
+          <CalendarCheck class="icon" decorative />
+          <span>Calendar</span>
         </router-link>
       </li>
     </ul>
@@ -58,15 +62,19 @@ export default {
 nav {
   ul {
     display: flex;
-    justify-content: center;
     margin: 0;
     padding: 0;
 
     li {
       list-style: none;
-      padding: 1.5rem 1rem;
+      margin: 0.5rem;
+      flex: 1 1 0;
 
       a {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         text-decoration: none;
         font-size: 1rem;
         text-transform: uppercase;
@@ -89,12 +97,8 @@ nav {
         }
 
         .icon {
-          position: relative;
-          left: 0;
-          top: 0.3rem;
           color: #757575;
         }
-
       }
     }
   }
