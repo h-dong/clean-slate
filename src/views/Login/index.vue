@@ -4,7 +4,7 @@
       <h3>Hello there!</h3>
       <p>Welcome to the Clean Slate Todo App.</p>
       <p>
-        <span>This app is still in beta testing phase.</span>
+        <span>This app is still in beta testing phase. </span>
         <span>Which means we are still tweaking and improving it!</span>
       </p>
     </div>
