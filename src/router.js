@@ -1,9 +1,9 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Login from "@/views/Login";
-import Focus from "@/screens/Focus";
-import Plan from "@/screens/Plan";
-import Calendar from "@/screens/Calendar";
+import Focus from "@/views/Focus";
+import Plan from "@/views/Plan";
+import Calendar from "@/views/Calendar";
 import { AUTH } from "@/firebase";
 
 Vue.use(Router);
