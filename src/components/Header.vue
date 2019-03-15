@@ -70,13 +70,13 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 1rem;
+    padding: 0 0.5rem;
 
     button {
       border: none;
       font-size: 1rem;
       text-decoration: underline;
-      margin: 0 1rem;
+      margin: 0 0.5rem;
     }
 
     .profile {
