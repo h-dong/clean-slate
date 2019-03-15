@@ -22,6 +22,8 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import "styles.styl";
+
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 @import url('https://fonts.googleapis.com/css?family=Noto+Serif+SC|Open+Sans&subset=chinese-simplified');
 // font-family: 'Noto Serif SC', serif;
