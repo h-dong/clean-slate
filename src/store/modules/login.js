@@ -10,7 +10,7 @@ const Login = {
   },
   actions: {},
   mutations: {
-    setCurrentUser(state, payload) {
+    SET_CURRENT_USER(state, payload) {
       state.User = {
         createdAt: payload.createdAt,
         displayName: payload.displayName,
@@ -22,9 +22,8 @@ const Login = {
         uid: payload.uid,
       };
     },
-    // eslint-disable-next-line no-unused-vars
-    resetState(state) {
-      state = Object.assign(state, getInitialState()); // eslint-disable-line no-param-reassign
+    RESET_STATE(state) {
+      state = Object.assign(state, getInitialState());
     },
   },
 };

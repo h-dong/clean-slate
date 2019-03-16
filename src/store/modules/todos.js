@@ -6,22 +6,21 @@ const Todos = {
   namespaced: true,
   state: getInitialState(),
   getters: {
-    hasTodos: state => state.Todos.length > 0,
+    HAS_TODO: state => state.Todos.length > 0,
+    GET_ALL: state => state.Todos,
   },
   actions: {
-    add() {
-      state.Todos.push({
-        title: 'A new todo',
-        description: 'A not very interesting description',
-        date: new Date(),
-      });
+    ADD({ commit }, newTodo) {
+      commit('ADD_TODO', newTodo);
     },
-    remove() {},
+    REMOVE() {},
   },
   mutations: {
-    // eslint-disable-next-line no-unused-vars
-    resetState(state) {
-      state = Object.assign(state, getInitialState()); // eslint-disable-line no-param-reassign
+    ADD_TODO(state, todo) {
+      state.Todos.push(todo);
+    },
+    RESET_STATE(state) {
+      state = Object.assign(state, getInitialState());
     },
   },
 };

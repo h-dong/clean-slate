@@ -4,11 +4,11 @@
       <h3>Hello there!</h3>
       <p>Welcome to the Clean Slate Todo App.</p>
       <p>
-        <span>This app is still in beta testing phase. </span>
+        <span>This app is still in beta testing phase.</span>
         <span>Which means we are still tweaking and improving it!</span>
       </p>
     </div>
-    <GoogleAuthButton @buttonClicked="login" />
+    <GoogleAuthButton @buttonClicked="login"/>
     <div class="message">
       <p>More login methods coming soon...</p>
     </div>
@@ -16,13 +16,13 @@
 </template>
 
 <script>
-import GoogleAuthButton from "@/components/GoogleAuthButton";
-import { ROUTES } from "@/router";
-import { AUTH, FIRESTORE, PROVIDER } from "@/firebase";
+import GoogleAuthButton from '@/components/GoogleAuthButton';
+import { ROUTES } from '@/router';
+import { AUTH, FIRESTORE, PROVIDER } from '@/firebase';
 
 export default {
   components: {
-    GoogleAuthButton
+    GoogleAuthButton,
   },
   data() {
     return {
@@ -30,7 +30,7 @@ export default {
       showForgotPassword: false,
       passwordResetSuccess: false,
       performingRequest: false,
-      errorMsg: ""
+      errorMsg: '',
     };
   },
   mounted() {
@@ -50,9 +50,9 @@ export default {
       AUTH.getRedirectResult()
         .then(result => {
           if (result.user) {
-            this.$store.commit("Login/setCurrentUser", result.user);
+            this.$store.commit('Login/SET_CURRENT_USER', result.user);
 
-            const userRef = FIRESTORE.collection("users").doc(result.user.uid);
+            const userRef = FIRESTORE.collection('users').doc(result.user.uid);
 
             userRef.get().then(document => {
               if (!document.exists) {
@@ -64,7 +64,7 @@ export default {
                     this.$router.push({ name: ROUTES.FOCUS });
                   })
                   .catch(error => {
-                    console.log(error); // eslint-disable-line no-console
+                    console.log(error);
                   });
               } else {
                 this.$router.push({ name: ROUTES.FOCUS });
@@ -73,10 +73,10 @@ export default {
           }
         })
         .catch(error => {
-          console.log(error); // eslint-disable-line no-console
+          console.log(error);
         });
-    }
-  }
+    },
+  },
 };
 </script>
 

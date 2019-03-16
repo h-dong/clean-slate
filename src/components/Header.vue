@@ -38,7 +38,7 @@ export default {
     logout() {
       AUTH.signOut()
         .then(() => {
-          this.$store.commit('clearState');
+          this.$store.commit('CLEAR_APP_STATE');
 
           this.$router.push({ name: ROUTES.LOGIN });
         })

@@ -15,9 +15,9 @@ const store = new Vuex.Store({
     Todos,
   },
   mutations: {
-    clearState() {
+    CLEAR_APP_STATE() {
       for (const module in store._modulesNamespaceMap) {
-        store.commit(`${module}resetState`);
+        store.commit(`${module}RESET_STATE`);
       }
     },
   },
@@ -27,7 +27,7 @@ const store = new Vuex.Store({
 // handle page reload
 AUTH.onAuthStateChanged(user => {
   if (user) {
-    store.commit('Login/setCurrentUser', user);
+    store.commit('Login/SET_CURRENT_USER', user);
     // TODO: implement the follow or remove them
     // store.dispatch('fetchUserProfile');
 
