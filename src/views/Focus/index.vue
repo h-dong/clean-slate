@@ -34,38 +34,38 @@ export default {
         date: new Date(),
       };
 
-      const uid = this.user.uid;
+      // const uid = this.user.uid;
 
-      console.log(uid);
+      // console.log(uid);
 
-      const docRef = FIRESTORE.collection('users').doc(uid);
+      // const docRef = FIRESTORE.collection('users').doc(uid);
 
-      docRef.onSnapshot(doc => {
-        console.log('Current data: ', doc.data());
-      });
+      // docRef.onSnapshot(doc => {
+      //   console.log('Current data: ', doc.data());
+      // });
 
-      docRef
-        .get()
-        .then(doc => {
-          console.log(
-            'Document successfully written! Document written with ID:',
-            doc.data(),
-          );
+      // docRef
+      //   .get()
+      //   .then(doc => {
+      //     console.log(
+      //       'Document successfully written! Document written with ID:',
+      //       doc.data(),
+      //     );
 
-          newTodo.timestamp = FIRESTORE.FieldValue.serverTimestamp();
+      //     newTodo.timestamp = FIRESTORE.FieldValue.serverTimestamp();
 
-          docRef.set(
-            {
-              todos: [...doc.data().todos, newTodo],
-            },
-            { merge: true },
-          );
+      //     docRef.set(
+      //       {
+      //         todos: [...doc.data().todos, newTodo],
+      //       },
+      //       { merge: true },
+      //     );
 
-          // doc.data().tags.push('test2');
-        })
-        .catch(error => {
-          console.error('Error writing document: ', error);
-        });
+      //     // doc.data().tags.push('test2');
+      //   })
+      //   .catch(error => {
+      //     console.error('Error writing document: ', error);
+      //   });
 
       this.$store.dispatch('Todos/ADD', newTodo);
     },
