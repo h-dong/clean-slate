@@ -6,30 +6,30 @@
         <span>Login</span>
       </router-link>
       <button @click="logout" v-if="isAuthenticated">logout</button>
-      <img :src="profilePic" v-if="isAuthenticated" class="profile" />
+      <img :src="profilePic" v-if="isAuthenticated" class="profile">
     </div>
   </header>
 </template>
 
 <script>
-import { mapState } from "vuex";
-import { ROUTES } from "@/router";
-import { AUTH } from "@/firebase";
+import { mapState } from 'vuex';
+import { ROUTES } from '@/router';
+import { AUTH } from '@/firebase';
 
 export default {
   data() {
     return {
-      onLoginPage: false
+      onLoginPage: false,
     };
   },
   mounted() {
     this.onLoginPage = this.$route.name === ROUTES.LOGIN;
   },
   computed: {
-    ...mapState("Login", {
+    ...mapState('Login', {
       isAuthenticated: state => state.User,
-      profilePic: state => state.User.photoURL
-    })
+      profilePic: state => state.User.photoURL,
+    }),
   },
   methods: {
     isLoginPage() {
@@ -38,15 +38,15 @@ export default {
     logout() {
       AUTH.signOut()
         .then(() => {
-          this.$store.commit("Login/resetState");
+          this.$store.commit('clearState');
 
           this.$router.push({ name: ROUTES.LOGIN });
         })
         .catch(err => {
           console.log(err); // eslint-disable-line no-console
         });
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -80,10 +80,9 @@ header {
     }
 
     .profile {
-      width: 50px;
-      height: 50px;
+      width: 35px;
+      height: 35px;
       border-radius: 50%;
-
       background-repeat: no-repeat;
       background-position: center center;
       background-size: cover;
