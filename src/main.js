@@ -1,8 +1,8 @@
-import Vue from "vue";
-import App from "@/App";
-import router from "@/router";
-import store from "@/store";
-import { AUTH } from "@/firebase";
+import Vue from 'vue';
+import App from '@/App';
+import router from '@/router';
+import store from '@/store';
+import { AUTH } from '@/firebase';
 
 Vue.config.productionTip = false;
 
@@ -15,7 +15,7 @@ AUTH.onAuthStateChanged(user => {
     app = new Vue({
       router,
       store,
-      render: h => h(App)
-    }).$mount("#app");
+      render: h => h(App),
+    }).$mount('#app');
   }
 });
