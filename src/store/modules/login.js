@@ -1,16 +1,12 @@
 const getInitialState = () => ({
   User: null,
-  Todos: [],
-  Tags: []
 });
 
-export default {
+const Login = {
   namespaced: true,
   state: getInitialState(),
   getters: {
-    hasTodos: state => state.Todos.length > 0,
-    hasTags: state => state.Tags.length > 0,
-    User: state => state.User
+    User: state => state.User,
   },
   actions: {},
   mutations: {
@@ -23,12 +19,14 @@ export default {
         lastLoginAt: payload.lastLoginAt,
         photoURL: payload.photoURL,
         providerData: payload.providerData,
-        uid: payload.uid
+        uid: payload.uid,
       };
     },
     // eslint-disable-next-line no-unused-vars
     resetState(state) {
       state = Object.assign(state, getInitialState()); // eslint-disable-line no-param-reassign
-    }
-  }
+    },
+  },
 };
+
+export { Login as default };
