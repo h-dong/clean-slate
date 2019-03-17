@@ -7,7 +7,7 @@ import Todos from '@/store/modules/todos';
 
 Vue.use(Vuex);
 
-const debug = process.env.NODE_ENV !== 'production';
+const debug = process.env.ENV !== 'production';
 
 const store = new Vuex.Store({
   modules: {
