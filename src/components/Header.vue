@@ -54,7 +54,8 @@ export default {
 header {
   display: flex;
   justify-content: space-between;
-  height: 4rem;
+  align-items: center;
+  height: 3rem;
   backface-visibility: hidden;
   background: #fff;
   border-bottom: 1px solid #e1e1e1;
@@ -64,6 +65,7 @@ header {
 
   h3 {
     padding: 0 1rem;
+    margin: 0;
   }
 
   .wrapper {

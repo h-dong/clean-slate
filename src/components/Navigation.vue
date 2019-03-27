@@ -3,20 +3,20 @@
     <ul class="inline">
       <li>
         <router-link :to="{ name: routes.FOCUS }" :class="{ active: isActive(routes.FOCUS) }">
-          <FormatListChecks class="icon" decorative/>
-          <span>Focus</span>
+          <FormatListChecks decorative/>
+          <span class="label">Focus</span>
         </router-link>
       </li>
       <li>
         <router-link :to="{ name: routes.PLAN }" :class="{ active: isActive(routes.PLAN) }">
-          <Trello class="icon" decorative/>
-          <span>Plan</span>
+          <Trello decorative/>
+          <span class="label">Plan</span>
         </router-link>
       </li>
       <li>
         <router-link :to="{ name: routes.CALENDAR }" :class="{ active: isActive(routes.CALENDAR) }">
-          <CalendarCheck class="icon" decorative/>
-          <span>Calendar</span>
+          <CalendarCheck decorative/>
+          <span class="label">Calendar</span>
         </router-link>
       </li>
     </ul>
@@ -59,7 +59,7 @@ nav {
 
     li {
       list-style: none;
-      margin: 0.5rem;
+      margin: 0.3rem;
       flex: 1 1 0;
 
       a {
@@ -83,13 +83,18 @@ nav {
           font-weight: 600;
           color: #3f51b5;
 
-          .icon {
+          .material-design-icon {
             color: #3f51b5;
           }
         }
 
-        .icon {
+        .material-design-icon {
           color: #757575;
+          height: 1.6rem;
+        }
+
+        .label {
+          font-size: $font-size-body-2;
         }
       }
     }

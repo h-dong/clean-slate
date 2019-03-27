@@ -2,7 +2,7 @@
   <div>
     <span>Focus page</span>
     <ul class="mdc-list">
-      <TodoDefault v-for="todo in todos" :key="todo.id"></TodoDefault>
+      <TodoDefault v-for="todo in todos" :key="todo.id" :todo="todo" @delete="deleteTodo"/>
     </ul>
     <button @click="addNewTodo">Add</button>
   </div>
@@ -21,9 +21,9 @@ export default {
     ...mapState('Login', {
       user: state => state.User,
     }),
-    ...mapState('Todos', {
-      todos: state => state.Todos,
-    }),
+    todos() {
+      return this.$store.getters['Todos/GET_ALL'];
+    },
   },
   methods: {
     addNewTodo() {
@@ -68,6 +68,9 @@ export default {
       //   });
 
       this.$store.dispatch('Todos/ADD', newTodo);
+    },
+    deleteTodo(todo) {
+      this.$store.dispatch('Todos/DELETE', todo.id);
     },
   },
 };
